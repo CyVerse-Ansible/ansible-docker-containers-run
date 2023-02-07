@@ -1,0 +1,20 @@
+- name: DOCKER_IMAGE; prepull the docker image
+  community.docker.docker_image:
+    name: "{{ item['DOCKER_IMAGE'] }}"
+    tag: "{{ item['DOCKER_IMAGE_TAG'] }}"
+    source: pull
+  when: DOCKER_IMAGE_PULL is defined and DOCKER_IMAGE_PULL|bool
+  loop: "{{ DOCKER_IMAGES }}"
+  retries: 2
+  delay: 10
+  ignore_errors: true
+
+- name: Start docker container
+  community.docker.docker_container:
+    name: "{{ item['DOCKER_IMAGE_NAME'] }}"
+    image: "{{ item['DOCKER_IMAGE'] }}"
+    state: started
+    detach: true
+    ports: "{{ item['DOCKER_PORTS'] }}"
+    volumes: "{{ item['DOCKER_VOLUMES'] }}"
+  loop: "{{ DOCKER_IMAGES }}"

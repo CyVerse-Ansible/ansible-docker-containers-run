@@ -1,0 +1,11 @@
+DOCKER_IMAGES:
+  - DOCKER_IMAGE: "ubuntu:18.04"
+    DOCKER_IMAGE_TAG: "ubuntutest18"
+    DOCKER_IMAGE_NAME: "ryan_test18"
+    DOCKER_PORTS: ["8080:9001"]
+    DOCKER_VOLUMES: ["/tmp:/tmp"]
+  - DOCKER_IMAGE: "ubuntu:20.04"
+    DOCKER_IMAGE_TAG: "ubuntutest20"
+    DOCKER_IMAGE_NAME: "ryan_test20"
+    DOCKER_PORTS: []
+    DOCKER_VOLUMES: []
