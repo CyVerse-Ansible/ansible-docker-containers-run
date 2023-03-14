@@ -9,7 +9,7 @@
   delay: 10
   ignore_errors: true
 
-- name: Start docker container
+- name: DOCKER_CONTAINER; Start docker container
   community.docker.docker_container:
     name: "{{ item['DOCKER_IMAGE_NAME'] }}"
     image: "{{ item['DOCKER_IMAGE'] }}"
