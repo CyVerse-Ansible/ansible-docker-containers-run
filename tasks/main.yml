@@ -18,3 +18,6 @@
     ports: "{{ item['DOCKER_PORTS'] }}"
     volumes: "{{ item['DOCKER_VOLUMES'] }}"
   loop: "{{ DOCKER_IMAGES }}"
+  register: start_result
+  failed_when: start_result.rc >= 2 and '"iptables failed" not in start_result.stderr'
+
