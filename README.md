@@ -41,8 +41,8 @@ This is a sample playbook:
       - DOCKER_IMAGE: "ubuntu:20.04"
         DOCKER_IMAGE_TAG: "ubuntutest20"
         DOCKER_IMAGE_NAME: "ryan_test20"
-        DOCKER_PORTS: [""]
-        DOCKER_VOLUMES: [""]
+        DOCKER_PORTS: []
+        DOCKER_VOLUMES: []
 ````
 
 Author Information
